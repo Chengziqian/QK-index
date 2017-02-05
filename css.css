@@ -1,0 +1,76 @@
+html,body{
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    min-width: 800px;
+    min-height: 600px;
+}
+.container{
+    height: 100%;
+    overflow: hidden;
+}
+.wrapaper{
+    height: 100%;
+    touch-action: none;
+    transition: all 1500ms ease;
+}
+.page{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.page0{
+    background-color: blue;
+}
+.page1{
+    background-color: red;
+}
+.page2{
+    background-color: green;
+}
+#animation_container{
+    background-color:rgba(255, 255, 255, 0); 
+    width:610px; 
+    height:400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#canvas{
+    position: absolute; 
+    display: block; 
+    background-color:rgba(255, 255, 255, 0);
+}
+#dom_overlay_container{
+     pointer-events:none; 
+     overflow:hidden; 
+     width:610px; 
+     height:400px; 
+     position: absolute; 
+     left: 0px; 
+     top: 0px; 
+     display: none;
+}
+#title_fir{
+    color: white;
+    font-family: Microsoft YaHei;
+    font-size: 200%;
+    display: none;
+    text-align: center;
+}
+#title_sec{
+    color: white;
+    font-family: Microsoft YaHei;
+    font-size: 150%;
+    margin-top: 30px;
+    display: none;
+    text-align: center;
+}
+#intro{
+    color: white;
+    font-family: Microsoft YaHei;
+    font-size: 300%;
+}
+#s1_out1,#s1_out2,#s1_0,#s1_1,#s1_2,#s1_3,#s1_4,#s1_5,#s1_6,#s1_7,#s1_8,#s1_9,#s1_10,#s1_11{
+    display: none;
+}
