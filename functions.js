@@ -55,24 +55,35 @@
 //mousewheel_func
     $(function(){
             $('.container').on('mousewheel',function(event){
-                console.log(event.deltaX,event.deltaY,event.deltaFactor);
-                var nowpage=parseInt($('.active').attr('data-page'));
-                if(event.deltaY>0){
-                    var prepage=nowpage-1;
-                    if(prepage>=0){
-                        $('.page'+nowpage).removeClass('active');
-                        $('.page'+prepage).addClass('active');
-                        $('.wrapaper').css('transform','translate(0,'+(prepage* -100)+'%)');
-                    }
+                var $this=$(this);
+                var settimeId=$this.data('settimeId');
+                if(settimeId){
+                    clearTimeout(settimeId);
                 }
-                else{
-                    var nextpage=nowpage+1;
-                    if(nextpage<3){
-                        $('.page'+nowpage).removeClass('active');
-                        $('.page'+nextpage).addClass('active');
-                        $('.wrapaper').css('transform','translate(0,'+(nextpage* -100)+'%)');
+                $this.data('settimeId',setTimeout(function() {
+
+                    console.log(event.deltaX,event.deltaY,event.deltaFactor);
+                    var nowpage=parseInt($('.active').attr('data-page'));
+                    if(event.deltaY>0){
+                        var prepage=nowpage-1;
+                        if(prepage>=0){
+                            $('.page'+nowpage).removeClass('active');
+                            $('.page'+prepage).addClass('active');
+                            $('.wrapaper').css('transform','translate(0,'+(prepage* -100)+'%)');
+                        }
                     }
-                }
+                    else{
+                        var nextpage=nowpage+1;
+                        if(nextpage<5){
+                            $('.page'+nowpage).removeClass('active');
+                            $('.page'+nextpage).addClass('active');
+                            $('.wrapaper').css('transform','translate(0,'+(nextpage* -100)+'%)');
+                        }
+                    }
+
+                $this.removeData('settimeId');
+                $this=null;
+                }, 100));
             })
         })
 //Logo_size_control
@@ -91,32 +102,65 @@
         })
 //Section_functions
     //Section0
+    $(function(){
         setTimeout(function() {
-                $('#title_fir').fadeIn(1000);
-                $('#title_sec').fadeIn(2000);
+                $('#title_fir').css('opacity','1');
+                $('#title_sec').css('opacity','1');
+                $('.line').css('width','300px');
             }, 2500);
-    //Section1
+        setTimeout(function() {
+            $('#s1_bg').css('backgroundColor','rgba(0,0,0,0)')
+        }, 3500);
+    })
+        
+    //Section1,Section2,Section3
         $(function(){
             $('.container').on('mousewheel',function(event){
-                if(event.deltaY!=0){
-                    var nowpage_action=parseInt($('.active').attr('data-page'));
                     setTimeout(function() {
-                        if(nowpage_action==1){
-                            $('#s1_0').fadeIn(50);
-                            $('#s1_1').fadeIn(150);
-                            $('#s1_2').fadeIn(250);
-                            $('#s1_3').fadeIn(350);
-                            $('#s1_4').fadeIn(450);
-                            $('#s1_6').fadeIn(550);
-                            $('#s1_7').fadeIn(650);
-                            $('#s1_8').fadeIn(750);
-                            $('#s1_9').fadeIn(850);
-                            $('#s1_10').fadeIn(950);
-                            $('#s1_11').fadeIn(1050);
-                            $('#s1_out1').fadeIn(2050);
-                            $('#s1_out2').fadeIn(2050);
-                    }
-                    }, 1500);
-                }
+                        var nowpage_action=parseInt($('.active').attr('data-page'));
+                        setTimeout(function() {
+                            if(nowpage_action==1){
+                                $('.p1').css('opacity','1');
+                                $('.p2').css('opacity','1');
+                                $('.t1').css('opacity','1');
+                                $('.t2').css('opacity','1');
+                            }
+                            if(nowpage_action==2){
+                                $('.s2_title').css('opacity','1');
+                                setTimeout(function() {
+                                    $('.picture_1_0').css('opacity','1');
+                                    $('.picture_2_0').css('opacity','1');
+                                }, 1000);
+                                setTimeout(function() {
+                                    $('.picture_1_1').css('opacity','1');
+                                    $('.picture_2_1').css('opacity','1');
+                                }, 1500);
+                            }
+                            if(nowpage_action==3){
+                                $('.left_title').css({
+                                    'opacity':'1',
+                                    'transform':'translate(0,0)'
+                                })
+                                setTimeout(function() {
+                                    $('.left_p').css({
+                                    'opacity':'1',
+                                    'transform':'translate(0,0)'
+                                    })
+                                }, 500);
+                                setTimeout(function() {
+                                    $('.right_title').css({
+                                    'opacity':'1',
+                                    'transform':'translate(0,0)'
+                                    })
+                                    setTimeout(function() {
+                                        $('.right_p').css({
+                                        'opacity':'1',
+                                        'transform':'translate(0,0)'
+                                        })
+                                    }, 500);
+                                }, 1000);
+                            }
+                        }, 1500);
+                    }, 100);
             })
         })
