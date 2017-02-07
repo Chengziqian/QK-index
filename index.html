@@ -7,10 +7,27 @@
         <script src="Logo.js"></script>
         <script src="functions.js"></script>
         <link rel="stylesheet" type="text/css" href="css.css">
+        <title>晴空工作室</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
         <meta name="authoring-tool" content="Adobe_Animate_CC">
         <meta charset="UTF-8">
     </head>
     <body onload="init();">
+        <div id="scrool_page">
+            <ul>
+                <a class="click_page0" href="javascript:void(0)" onclick="jumpto(0)"><li class="s_page_0 s_active"></li></a>
+                <a class="click_page1" href="javascript:void(0)" onclick="jumpto(1)"><li class="s_page_1"></li></a>
+                <a class="click_page2" href="javascript:void(0)" onclick="jumpto(2)"><li class="s_page_2"></li></a>
+                <a class="click_page3" href="javascript:void(0)" onclick="jumpto(3)"><li class="s_page_3"></li></a>
+                <a class="click_page4" href="javascript:void(0)" onclick="jumpto(4)"><li class="s_page_4"></li></a>
+            </ul>
+        </div>
+        <div id="next">
+            <div id="next_container" onclick="next()">
+                <span class="more">更多</span>
+                <img class="next_picture" src="./pictures/index_next.png">
+            </div>
+        </div>
         <div class="container">
             <div class="wrapaper">
                 <section class="page page0 active" data-page="0">
@@ -119,9 +136,15 @@
                             <p>2.如果你是团队的负责人想与我们合作。</p>
                             <p>3.如果你对我们团队有好的建议。</p>
                             <p>4.如果你有什么其它需要我们帮助的。</p>
+                            <p>请联系</p>
+                            <ul>
+                                <li>姜同学：guessever@gmail.com</li>
+                                <li>陈同学：624365072@qq.com</li>
+                            </ul>
                         </div>
                         <footer>
                             <span>Copyright &copy; 2017晴空工作室 All rights reserved.</span>
+                            <span><a href="http://blog.qkteam.com/" target="view_window">博客</a></span><span>|</span><span><a href="http://blog.qkteam.com/works/" target="view_window">作品</a></span>
                         </footer>
                     </div>
                 </section>
