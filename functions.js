@@ -1,3 +1,16 @@
+//isPC
+    $(function(){
+        if(!navigator.userAgent.match(/(iPhone|iPad|Android|ios)/i)){
+            $(document.body).css({
+                'min-width':'1024px',
+                'min-height':'700px'
+            });
+            $(document.html).css({
+                'min-width':'1024px',
+                'min-height':'700px'
+            });
+        }
+    })
 //Animate_Logo
     var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
         function init() {
@@ -310,3 +323,13 @@
                 }
             }, 600);
         }
+//pictures-size control
+    $(function(){
+        var body_width=$(document.body).width();
+        var body_height=$(document.body).height();
+        var size=body_height>body_width?body_width:body_height;
+        $('.picture_size').css({
+            'width':size*0.2+'px',
+            'height':size*0.2+'px'
+        })
+    })
